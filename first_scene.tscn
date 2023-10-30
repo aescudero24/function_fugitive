@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcy4u6stw0lpx"]
+[gd_scene load_steps=9 format=3 uid="uid://bcy4u6stw0lpx"]
 
+[ext_resource type="Texture2D" uid="uid://ddac7ryh2yggn" path="res://Screenshot 2023-10-30 144134.png" id="1_i1b73"]
 [ext_resource type="PackedScene" uid="uid://62w0pf1yxxfx" path="res://player.tscn" id="1_tgp2o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ib22k"]
@@ -14,6 +15,9 @@ background_mode = 2
 sky = SubResource("Sky_unovs")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1f3bt"]
+albedo_texture = ExtResource("1_i1b73")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f0kda"]
 size = Vector2(10, 10)
@@ -32,6 +36,7 @@ shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_1f3bt")
 mesh = SubResource("PlaneMesh_f0kda")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]

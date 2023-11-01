@@ -1,11 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcy4u6stw0lpx"]
+[gd_scene load_steps=42 format=3 uid="uid://bcy4u6stw0lpx"]
 
 [ext_resource type="Texture2D" uid="uid://ddac7ryh2yggn" path="res://Screenshot 2023-10-30 144134.png" id="1_i1b73"]
 [ext_resource type="PackedScene" uid="uid://62w0pf1yxxfx" path="res://player.tscn" id="1_tgp2o"]
 [ext_resource type="Texture2D" uid="uid://boql202t3arwk" path="res://Screenshot 2023-10-30 at 3.13.54 PM.png" id="3_0whca"]
+[ext_resource type="Texture2D" uid="uid://dyeq3r3jlk1g1" path="res://Screenshot 2023-10-30 at 3.12.10 PM.png" id="4_tqtmp"]
+[ext_resource type="Texture2D" uid="uid://bjm5kbcco2mu6" path="res://Screenshot 2023-10-26 150713.png" id="5_moyyk"]
+[ext_resource type="Texture2D" uid="uid://b4s2tng0kkk3b" path="res://Screenshot 2023-10-30 at 3.11.11 PM.png" id="6_5oxga"]
+[ext_resource type="Texture2D" uid="uid://crphosdbtwaj4" path="res://grass_texture_2.jpg" id="7_82vhd"]
+[ext_resource type="Texture2D" uid="uid://ivm1abi68vk3" path="res://tunnel 3.png" id="8_jfn85"]
+[ext_resource type="Texture2D" uid="uid://3xhx70mvlvps" path="res://road_sign.png" id="9_5s0im"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ib22k"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.172549, 0.00784314, 0.356863, 1)
+sky_horizon_color = Color(0.0470588, 0.00392157, 0.0980392, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
 [sub_resource type="Sky" id="Sky_unovs"]
@@ -38,6 +45,64 @@ size = Vector3(20, 30, 20)
 albedo_texture = ExtResource("3_0whca")
 
 [sub_resource type="BoxMesh" id="BoxMesh_o6p8m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_74a4g"]
+size = Vector3(30, 20, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kr6m"]
+albedo_texture = ExtResource("4_tqtmp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qf5hk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fb2k8"]
+size = Vector3(24, 12, 24)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7q1y"]
+albedo_texture = ExtResource("3_0whca")
+
+[sub_resource type="BoxMesh" id="BoxMesh_l3o8b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh0lj"]
+albedo_texture = ExtResource("5_moyyk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2v7b4"]
+size = Vector3(20, 20, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwqpj"]
+albedo_texture = ExtResource("4_tqtmp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8cdld"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4bq3"]
+albedo_texture = ExtResource("6_5oxga")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n66pv"]
+height = 10.0
+radius = 0.25
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4vyul"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gse4w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jlqco"]
+albedo_texture = ExtResource("7_82vhd")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3m4fl"]
+size = Vector2(55, 55)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btmdj"]
+size = Vector3(1, 15, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvto7"]
+albedo_texture = ExtResource("8_jfn85")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nqfj0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agegd"]
+albedo_texture = ExtResource("9_5s0im")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4l37p"]
+size = Vector2(10, 5)
 
 [node name="Node3D" type="Node3D"]
 
@@ -96,7 +161,7 @@ transform = Transform3D(150, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_nt1s1")
 
 [node name="Boundary 4" type="RigidBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.822, 2.10335, -0.499714)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.1161, 2.10335, -0.499714)
 freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary 4"]
@@ -107,7 +172,7 @@ transform = Transform3D(150, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_nt1s1")
 
 [node name="Building" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8563, 12.4632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00131226, 14.8563, 27.0494)
 freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Building"]
@@ -117,3 +182,248 @@ shape = SubResource("BoxShape3D_yjw5y")
 transform = Transform3D(20, 0, 0, 0, 30, 0, 0, 0, 20, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ffyss")
 mesh = SubResource("BoxMesh_o6p8m")
+
+[node name="Building 2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8972, 9.36489, 28.5763)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building 2"]
+shape = SubResource("BoxShape3D_74a4g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building 2"]
+transform = Transform3D(30, 0, 0, 0, 20, 0, 0, 0, 30, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7kr6m")
+mesh = SubResource("BoxMesh_qf5hk")
+
+[node name="Building 3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.868, 5.799, -24.72)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building 3"]
+shape = SubResource("BoxShape3D_fb2k8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building 3"]
+transform = Transform3D(24, 0, 0, 0, 12, 0, 0, 0, 24, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_d7q1y")
+mesh = SubResource("BoxMesh_l3o8b")
+
+[node name="Building 4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.9713, 5.79887, -24.7199)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building 4"]
+shape = SubResource("BoxShape3D_fb2k8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building 4"]
+transform = Transform3D(24, 0, 0, 0, 12, 0, 0, 0, 24, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vh0lj")
+mesh = SubResource("BoxMesh_l3o8b")
+
+[node name="Building 5" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.9713, 5.79887, -60.6384)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building 5"]
+shape = SubResource("BoxShape3D_fb2k8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building 5"]
+transform = Transform3D(24, 0, 0, 0, 12, 0, 0, 0, 24, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vh0lj")
+mesh = SubResource("BoxMesh_l3o8b")
+
+[node name="Building 6" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2671, 5.799, -60.6385)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building 6"]
+shape = SubResource("BoxShape3D_fb2k8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building 6"]
+transform = Transform3D(24, 0, 0, 0, 12, 0, 0, 0, 24, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_d7q1y")
+mesh = SubResource("BoxMesh_l3o8b")
+
+[node name="L-Shaped Building" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2656, 9.28996, -37.208)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="L-Shaped Building"]
+shape = SubResource("BoxShape3D_2v7b4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="L-Shaped Building"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 50, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dwqpj")
+mesh = SubResource("BoxMesh_8cdld")
+
+[node name="L-Shaped Building2" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.3115, 9.28996, -22.1636)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="L-Shaped Building2"]
+shape = SubResource("BoxShape3D_2v7b4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="L-Shaped Building2"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 50, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_l4bq3")
+mesh = SubResource("BoxMesh_8cdld")
+
+[node name="Lamp Post" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.000104709, 0, -1, 0, 1, 0, 1, 0, -0.000104709, -34.3272, 4.47174, -5.87844)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lamp Post"]
+shape = SubResource("CylinderShape3D_n66pv")
+
+[node name="the pole" type="MeshInstance3D" parent="Lamp Post"]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4vyul")
+
+[node name="where the light goes" type="MeshInstance3D" parent="Lamp Post"]
+transform = Transform3D(5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 4.99131, 0)
+mesh = SubResource("BoxMesh_gse4w")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lamp Post"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, 2.08307, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lamp Post"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, -1.9644, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="Lamp Post2" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.000104709, 0, -1, 0, 1, 0, 1, 0, -0.000104709, 28.8881, 4.47174, -5.87844)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lamp Post2"]
+shape = SubResource("CylinderShape3D_n66pv")
+
+[node name="the pole" type="MeshInstance3D" parent="Lamp Post2"]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4vyul")
+
+[node name="where the light goes" type="MeshInstance3D" parent="Lamp Post2"]
+transform = Transform3D(5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 4.99131, 0)
+mesh = SubResource("BoxMesh_gse4w")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lamp Post2"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, 2.08307, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lamp Post2"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, -1.9644, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="Lamp Post3" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.000104709, 0, -1, 0, 1, 0, 1, 0, -0.000104709, 59.1272, 4.47174, -5.87844)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lamp Post3"]
+shape = SubResource("CylinderShape3D_n66pv")
+
+[node name="the pole" type="MeshInstance3D" parent="Lamp Post3"]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4vyul")
+
+[node name="where the light goes" type="MeshInstance3D" parent="Lamp Post3"]
+transform = Transform3D(5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 4.99131, 0)
+mesh = SubResource("BoxMesh_gse4w")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lamp Post3"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, 2.08307, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lamp Post3"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, -1.9644, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="Lamp Post4" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.000104709, 0, -1, 0, 1, 0, 1, 0, -0.000104709, 41.1053, 4.47174, -49.3652)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lamp Post4"]
+shape = SubResource("CylinderShape3D_n66pv")
+
+[node name="the pole" type="MeshInstance3D" parent="Lamp Post4"]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4vyul")
+
+[node name="where the light goes" type="MeshInstance3D" parent="Lamp Post4"]
+transform = Transform3D(5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 4.99131, 0)
+mesh = SubResource("BoxMesh_gse4w")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lamp Post4"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, 2.08307, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lamp Post4"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, -1.9644, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="Park Grass" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.503, -0.4, 42.123)
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Park Grass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_jlqco")
+mesh = SubResource("PlaneMesh_3m4fl")
+
+[node name="Lamp Post5" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.000104709, 0, -1, 0, 1, 0, 1, 0, -0.000104709, -10.4494, 4.47174, 42.3392)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lamp Post5"]
+shape = SubResource("CylinderShape3D_n66pv")
+
+[node name="the pole" type="MeshInstance3D" parent="Lamp Post5"]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_4vyul")
+
+[node name="where the light goes" type="MeshInstance3D" parent="Lamp Post5"]
+transform = Transform3D(5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 4.99131, 0)
+mesh = SubResource("BoxMesh_gse4w")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lamp Post5"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, 2.08307, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lamp Post5"]
+transform = Transform3D(1, 0, 0, 0, -0.0040491, 0.999992, 0, -0.999992, -0.0040491, -1.9644, 4.51548, 0)
+light_energy = 16.0
+spot_range = 15.0
+spot_angle = 56.0
+
+[node name="EXIT" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -74.4204, 6.59083, 0)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EXIT"]
+shape = SubResource("BoxShape3D_btmdj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EXIT"]
+transform = Transform3D(-3.27835e-07, 1, 0, -7.5, -4.37114e-08, 0, 0, 0, 7.5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vvto7")
+mesh = SubResource("PlaneMesh_nqfj0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="EXIT"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, -1, 4.37114e-08, 8.74228e-08, 8.74228e-08, 8.74228e-08, 1, 0.180557, -2.35018e-07, -5.37659)
+material_override = SubResource("StandardMaterial3D_agegd")
+mesh = SubResource("PlaneMesh_4l37p")

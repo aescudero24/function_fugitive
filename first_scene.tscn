@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcy4u6stw0lpx"]
+[gd_scene load_steps=15 format=3 uid="uid://bcy4u6stw0lpx"]
 
 [ext_resource type="Texture2D" uid="uid://ddac7ryh2yggn" path="res://Screenshot 2023-10-30 144134.png" id="1_i1b73"]
 [ext_resource type="PackedScene" uid="uid://62w0pf1yxxfx" path="res://player.tscn" id="1_tgp2o"]
+[ext_resource type="Texture2D" uid="uid://boql202t3arwk" path="res://Screenshot 2023-10-30 at 3.13.54 PM.png" id="3_0whca"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ib22k"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,7 +17,7 @@ sky = SubResource("Sky_unovs")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1f3bt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7xyp"]
 albedo_texture = ExtResource("1_i1b73")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f0kda"]
@@ -24,6 +25,19 @@ size = Vector2(10, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mh7it"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78pqf"]
+size = Vector3(150, 10, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nt1s1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjw5y"]
+size = Vector3(20, 30, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffyss"]
+albedo_texture = ExtResource("3_0whca")
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6p8m"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -35,8 +49,8 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_1f3bt")
+transform = Transform3D(15, 0, 0, 0, 10, 0, 0, 0, 15, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_w7xyp")
 mesh = SubResource("PlaneMesh_f0kda")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -45,5 +59,61 @@ mesh = SubResource("PlaneMesh_f0kda")
 shape = SubResource("ConcavePolygonShape3D_mh7it")
 
 [node name="Player" parent="." instance=ExtResource("1_tgp2o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6.00853)
 linear_damp = 3.0
+
+[node name="Boundary 1" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10335, 74.6657)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary 1"]
+shape = SubResource("BoxShape3D_78pqf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary 1"]
+transform = Transform3D(150, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nt1s1")
+
+[node name="Boundary 2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10335, -74.7133)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary 2"]
+shape = SubResource("BoxShape3D_78pqf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary 2"]
+transform = Transform3D(150, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nt1s1")
+
+[node name="Boundary 3" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 74.0329, 2.10335, -0.499714)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary 3"]
+shape = SubResource("BoxShape3D_78pqf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary 3"]
+transform = Transform3D(150, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nt1s1")
+
+[node name="Boundary 4" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.822, 2.10335, -0.499714)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary 4"]
+shape = SubResource("BoxShape3D_78pqf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary 4"]
+transform = Transform3D(150, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nt1s1")
+
+[node name="Building" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8563, 12.4632)
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building"]
+shape = SubResource("BoxShape3D_yjw5y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building"]
+transform = Transform3D(20, 0, 0, 0, 30, 0, 0, 0, 20, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ffyss")
+mesh = SubResource("BoxMesh_o6p8m")

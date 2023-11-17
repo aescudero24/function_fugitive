@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjm5kbcco2mu6"
-path.s3tc="res://.godot/imported/Screenshot 2023-10-26 150713.png-a051f1265221cee03836bb9b653a7842.s3tc.ctex"
+uid="uid://c5j7heu0mt08n"
+path.s3tc="res://.godot/imported/purple_code_2.png-9d45871a677b2a5d0760f9cd1041cc71.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Screenshot 2023-10-26 150713.png"
-dest_files=["res://.godot/imported/Screenshot 2023-10-26 150713.png-a051f1265221cee03836bb9b653a7842.s3tc.ctex"]
+source_file="res://Textures/purple_code_2.png"
+dest_files=["res://.godot/imported/purple_code_2.png-9d45871a677b2a5d0760f9cd1041cc71.s3tc.ctex"]
 
 [params]
 
